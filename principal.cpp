@@ -6,7 +6,6 @@ Principal::Principal(QWidget *parent)
     , ui(new Ui::Principal)
 {
     ui->setupUi(this);
-
     //Instancia de la imagen
     m_imagen = new QImage(this->size(), QImage::Format_ARGB32_Premultiplied);
 
@@ -43,8 +42,7 @@ void Principal::paintEvent(QPaintEvent *event)
 
 void Principal::mousePressEvent(QMouseEvent *event)
 {
-    m_ptInicial = event->pos();
-    /*if(m_opcion == 1){
+    if(m_opcion == 1){
         m_ptInicial = event->pos();
     }else if (m_opcion == 2){
         if (m_toogle){
@@ -67,6 +65,7 @@ void Principal::mousePressEvent(QMouseEvent *event)
             //Dibujar rectangulo
             int ancho = m_ptFinal.x() - m_ptInicial.y();
             int alto = m_ptFinal.y() - m_ptInicial.y();
+
             QPen pincel;
             pincel.setColor(m_color);
             pincel.setWidth(m_width);
@@ -91,7 +90,7 @@ void Principal::mousePressEvent(QMouseEvent *event)
             update();
         }
     }
-    m_toogle = !m_toogle;*/
+    m_toogle = !m_toogle;
 }
 
 void Principal::mouseMoveEvent(QMouseEvent *event)
@@ -161,7 +160,6 @@ void Principal::on_actionNuevo_triggered()
 {
     m_imagen->fill(Qt::white);
     m_color = Qt::black;
-    m_width = DEFAULT_ANCHO;
     m_opcion = 1;
     update();
 }
